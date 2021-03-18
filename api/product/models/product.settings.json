@@ -20,16 +20,20 @@
       "targetField": "name"
     },
     "price": {
-      "type": "decimal"
+      "type": "decimal",
+      "min": 0
     },
     "sale_price": {
-      "type": "decimal"
+      "type": "decimal",
+      "min": 0
     },
     "total_sales": {
       "type": "integer"
     },
     "rating_count": {
-      "type": "integer"
+      "type": "integer",
+      "max": 5,
+      "min": 1
     },
     "sku": {
       "type": "string"
@@ -52,7 +56,8 @@
       "default": false
     },
     "stock_quantity": {
-      "type": "integer"
+      "type": "integer",
+      "min": 0
     },
     "image": {
       "model": "file",
@@ -64,9 +69,15 @@
       "required": false
     },
     "categories": {
-      "via": "products",
       "collection": "category",
+      "via": "products",
       "dominant": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "short_description": {
+      "type": "text"
     }
   }
 }
